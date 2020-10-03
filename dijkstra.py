@@ -11,10 +11,11 @@ def dijkstra(graph, start, end):
         visited.append(u)
         if u == end:
             return cost
-        for v, c in G[u]:
+        for v, c in graph[u]:
             if v in visited:
                 continue
             next = cost + c
+            # heappush是让heap列表经过排序
             heapq.heappush(heap, (next, v))
     return (-1, -1)
 
