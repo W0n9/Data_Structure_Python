@@ -1,6 +1,8 @@
 class union_find(object):
     '''
     并查集
+    1、维护无向图的连通性。支持判断两个点是否在同一连通块内，和判断增加一条边是否会产生环。
+    2、用在求解最小生成树的 Kruskal 算法里。
     '''
     def __init__(self, data_list):
         self.father_dict = {}  # 保存节点的父节点
@@ -41,6 +43,11 @@ class union_find(object):
 
 
 if __name__ == '__main__':
+    '''
+    1.初始 a = [1,2,3,4,5],并将其添加到并查集里
+    2.分别合并[1,2][3,5] [3,1]
+    3.然后判断 2 5 是否为同一个集合
+    '''
     a = [1, 2, 3, 4, 5]
     union_find = union_find(a)
     union_find.union(1, 2)
